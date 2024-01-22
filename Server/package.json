@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^6.6.2"
+  }
+}
