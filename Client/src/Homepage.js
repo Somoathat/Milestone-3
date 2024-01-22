@@ -24,7 +24,7 @@ export function Homepage() {
       </button>
       <h1>Linguist Buddy</h1>
       <p>Click a flag and start learning a new language!</p>
-      <p>currently chose {language}</p>
+      <p>current selection: {language}</p>
     </div>
   );
 }
