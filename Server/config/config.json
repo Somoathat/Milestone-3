@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "linguist_user",
+    "password": "JrOsAAsrSLTPKGMLv8xJEdY8cmnLaYaJ",
+    "database": "linguist",
+    "host": "dpg-cmo743ed3nmc739jin0g-a.oregon-postgres.render.com",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "linguist_user",
+    "password": "JrOsAAsrSLTPKGMLv8xJEdY8cmnLaYaJ",
+    "database": "linguist_test",
+    "host": "dpg-cmo743ed3nmc739jin0g-a.oregon-postgres.render.com",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "linguist_user",
+    "password": "JrOsAAsrSLTPKGMLv8xJEdY8cmnLaYaJ",
+    "database": "linguist_production",
+    "host": "dpg-cmo743ed3nmc739jin0g-a.oregon-postgres.render.com",
+    "dialect": "postgres"
+  }
+}
