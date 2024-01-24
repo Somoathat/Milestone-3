@@ -39,5 +39,23 @@
   }
 } 
  
+/* Navbar.css */
+
+.navBar {
+  background-color: grey;
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 18px;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid white;
+}
 
 

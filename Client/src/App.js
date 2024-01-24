@@ -25,7 +25,7 @@ function App() {
 <div className="App">
       <Router>
         <header>
-          <h1 className="title">Welcome to LLB</h1>
+          <h1 className="title">Welcome to LLA</h1>
 
           <div className="navBar">
             <ul>
