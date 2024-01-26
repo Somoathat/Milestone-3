@@ -30,10 +30,8 @@ export const Register = (props) => {
 
     
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import './Register.css';
-import { registerUser } from '../../../Server/models/user';
+import { RegisterUser } from '../Server/models/user';
 
 function Registeruser() {
   const [username, setUsername] = useState('');
