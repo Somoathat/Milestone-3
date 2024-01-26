@@ -4,7 +4,13 @@
     "password": "JrOsAAsrSLTPKGMLv8xJEdY8cmnLaYaJ",
     "database": "linguist",
     "host": "dpg-cmo743ed3nmc739jin0g-a.oregon-postgres.render.com",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "dialectOptions": {
+      "ssl": {
+         "require": true,
+         "rejectUnauthorized": false
+       }
+     }
   },
   "test": {
     "username": "linguist_user",

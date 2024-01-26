@@ -14,12 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Question.init({
-    question_id: DataTypes.INTEGER,
-    question: DataTypes.STRING,
-    answer: DataTypes.BOOLEAN
+    question_id: { 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true
+  },
+    question: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    answer: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    }
   }, {
     sequelize,
     modelName: 'Question',
+    tableName: 'questions'
   });
   return Question;
 };
