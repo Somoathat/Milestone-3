@@ -33,8 +33,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Register.css';
+import { registerUser } from '../../../Server/models/user';
 
-function Register() {
+function Registeruser() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -42,8 +43,8 @@ function Register() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-    .post(`${API_URL}/register`, {
+    
+     .post(`${API_URL}/register`, {
       username: username,
       password: password,
     })
@@ -86,4 +87,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Registeruser;
