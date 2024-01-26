@@ -43,7 +43,7 @@ function Registeruser() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    
+    event
      .post(`${API_URL}/register`, {
       username: username,
       password: password,

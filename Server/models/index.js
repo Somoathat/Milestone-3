@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { registerUser, loginUser, logoutUser } = require("./user");
-const { listTodosForUser, createTodoForUser, updateTodoItem, deleteTodoItem } = require("./todo");
+
 
 dotenv.config();
 
@@ -65,72 +65,6 @@ app.post("/logout", express.json(), async (req, res) => {
     }
 });
 
-app.get("/todos", express.json(), async (req, res) => {
-    try {
-        const token = req.headers.authorization.split(" ")[1];
-        const todos = await listTodosForUser(token);
-        res.send({
-            message: "Todos retrieved successfully!",
-            todos,
-        });
-    } catch (err) {
-        res.status(400).send({
-            message: "Error retrieving todos!",
-            error: err.message,
-        });
-    }
-});
-
-app.post("/todos", express.json(), async (req, res) => {
-    try {
-        const token = req.headers.authorization.split(" ")[1];
-        const { title, name } = req.body;
-        const todo = await createTodoForUser(token, title, name);
-        res.send({
-            message: "Todo created successfully!",
-            todo,
-        });
-    } catch (err) {
-        res.status(400).send({
-            message: "Error creating todo!",
-            error: err.message,
-        });
-    }
-});
-
-app.put("/todos/:id", express.json(), async (req, res) => {
-    try {
-        const token = req.headers.authorization.split(" ")[1];
-        const { id } = req.params;
-        const { name, title, completed } = req.body;
-        const todo = await updateTodoItem(token, id, name, title, completed);
-        res.send({
-            message: "Todo updated successfully!",
-            todo,
-        });
-    } catch (err) {
-        res.status(400).send({
-            message: "Error updating todo!",
-            error: err.message,
-        });
-    }
-});
-
-app.delete("/todos/:id", express.json(), async (req, res) => {
-    try {
-        const token = req.headers.authorization.split(" ")[1];
-        const { id } = req.params;
-        await deleteTodoItem(token, id);
-        res.send({
-            message: "Todo deleted successfully!",
-        });
-    } catch (err) {
-        res.status(400).send({
-            message: "Error deleting todo!",
-            error: err.message,
-        });
-    }
-});
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
