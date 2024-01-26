@@ -28,12 +28,13 @@ export const Register = (props) => {
 } */
 
 
-    
+import axios from 'axios';   
 import React, { useState } from 'react';
 import './Register.css';
-import { RegisterUser } from '../Server/models/user';
+import {useNavigate} from 'react-router-dom'
 
-function Registeruser() {
+
+function Register() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
@@ -41,8 +42,8 @@ function Registeruser() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    event
-     .post(`${API_URL}/register`, {
+    axios
+     .post(`${API_URL} /Register`, {
       username: username,
       password: password,
     })
@@ -85,4 +86,4 @@ function Registeruser() {
   );
 }
 
-export default Registeruser;
+export default Register;

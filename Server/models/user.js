@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
-const client = require("./db-client");
+
 
 const saltRounds = 10;
 
