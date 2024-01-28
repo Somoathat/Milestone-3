@@ -1,22 +1,5 @@
-const express = require("express");
-const cors = require("cors");
-const dotenv = require("dotenv");
-const { registerUser, loginUser, logoutUser } = require("./user");
-
-
-dotenv.config();
-
-const app = express();
-app.use(cors());
-
-const port = process.env.PORT || 5000;
-
-app.get("/", (req, res) => {
-    res.send({
-        message: "Hello Developers!",
-        secret: process.env.NOT_SO_SECRET,
-    });
-});
+const router = require("express").Router();
+const { registerUser, loginUser, logoutUser } = require("../models/user");
 
 app.post("/register", express.json(), async (req, res) => {
     try {
@@ -66,6 +49,4 @@ app.post("/logout", express.json(), async (req, res) => {
 });
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+module.exports = router

@@ -1,7 +1,6 @@
-.App {
+/*.App {
   display: flex;
   text-align: center;
-  
 }
 
 .App-logo {
@@ -37,9 +36,9 @@
   to {
     transform: rotate(360deg);
   }
-} 
- 
-/* Navbar.css 
+}
+
+ Navbar.css 
 
 .navBar {
   background-color: grey;
@@ -58,4 +57,9 @@
   border-bottom: 2px solid white;
 }*/
 
-
+.navBar {
+  margin: 5px;
+  margin-right: 50px;
+  position: absolute;
+  right: 0%;
+}
