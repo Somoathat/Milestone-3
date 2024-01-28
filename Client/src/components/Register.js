@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import "./Register.css";
 export const Register = (props) => {
     const [email, setEmail] = useState('');
@@ -25,4 +25,65 @@ export const Register = (props) => {
         <button className="link-btn" onClick={() => props.onFormSwitch('login')}>Already have an account? Login here.</button>
     </div>
     )
+} */
+
+
+import axios from 'axios';   
+import React, { useState } from 'react';
+import './Register.css';
+import { useNavigate } from 'react-router-dom'
+
+
+function Register() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+     .post(`${API_URL} /Register`, {
+      username: username,
+      password: password,
+    })
+    .then((response) => {
+      navigate('/login');
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div className='align'>
+        <div>
+          <label className='input'>Username:</label>
+          <input
+            type='text'
+            name='username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)} 
+          />
+        </div>
+        <div>
+          <label className='input'>Password:</label>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} 
+          />
+        </div>
+      </div>
+      <button className='button-17' type='submit'>
+        Register
+      </button>
+      
+    </form>
+  );
 }
+
+export default Register;

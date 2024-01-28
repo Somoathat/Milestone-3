@@ -1,55 +1,50 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-const bcrypt = require('bcrypt');
-module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
+const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
-  //I looked up a good hash method to use for the password here
-  User.beforeCreate((user, options) => {
-    const salt = bcrypt.genSaltSync();
-    user.password = bcrypt.hashSync(user.password, salt);
-  });
-  User.beforeUpdate((user, options) => {
-    if (user.changed('password')) {
-      const salt = bcrypt.genSaltSync();
-      user.password = bcrypt.hashSync(user.password, salt);
+
+const saltRounds = 10;
+
+async function registerUser(username, password) {
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    // Insert the user into the database
+    const result = await client.query(
+        'INSERT INTO "User" (username, password) VALUES ($1, $2) RETURNING id',
+        [username, hashedPassword]
+    );
+
+    return result.rows[0].id; // Return the newly created user ID
+}
+
+async function loginUser(username, password) {
+    const result = await client.query('SELECT id, password FROM "User" WHERE username = $1', [
+        username,
+    ]);
+
+    const user = result.rows[0];
+    if (!user) {
+        throw new Error("User not found");
     }
-  });
-  
-  User.init({
-    user_id: {
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
-    username: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-    password: {
-      allowNull: false,
-      type: Sequelize.STRING
-    },
-    score: {
-      allowNull: false,
-      type: Sequelize.INTEGER
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+        throw new Error("Invalid password");
     }
-  }, {
-    sequelize,
-    modelName: 'User',
-    tableName: 'users'
-  });
-  return User;
+
+    // Generate a random token and store it
+    const token = crypto.randomBytes(64).toString("hex");
+    await client.query('UPDATE "User" SET token = $1 WHERE id = $2', [token, user.id]);
+
+    return token; // Return the token for the client to use
+}
+
+async function logoutUser(token) {
+    await client.query('UPDATE "User" SET token = NULL WHERE token = $1', [token]);
+}
+
+module.exports = {
+    registerUser,
+    loginUser,
+    logoutUser,
 };
