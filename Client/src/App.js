@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom"
 
 import logo from "./logo.svg";
-import  {Login} from "./components/Login"
-import  {Register}  from "./components/Register"
-import  {Homepage}  from "./components/Homepage"
+import  Login from "./components/Login"
+import  Register  from "./components/Register"
+import  Homepage  from "./components/Homepage"
 import "./App.css";
 import { Link } from 'react-router-dom'
 

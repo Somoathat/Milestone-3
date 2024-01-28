@@ -31,7 +31,7 @@ export const Register = (props) => {
 import axios from 'axios';   
 import React, { useState } from 'react';
 import './Register.css';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 
 function Register() {

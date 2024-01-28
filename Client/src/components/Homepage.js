@@ -1,7 +1,8 @@
 import Flag from "react-world-flags";
 import "./Homepage.css";
 import { useState } from "react";
-export function Homepage() {
+
+function Homepage() {
   let [language, setLanguage] = useState("none");
   return (
     
@@ -29,3 +30,5 @@ export function Homepage() {
     </div>
   );
 }
+
+export default Homepage
