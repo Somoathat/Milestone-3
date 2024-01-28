@@ -1,14 +1,9 @@
 import Flag from "react-world-flags";
 import "./Homepage.css";
 import { useState } from "react";
-<<<<<<< HEAD
-
-function Homepage() {
-=======
-import { Quiz } from "./Quiz";
+import  Quiz  from "./Quiz";
 import axios from "axios";
-export function Homepage() {
->>>>>>> 7ff072655d36c68e46dcb6cce944fd300acb105e
+ function Homepage() {
   let [language, setLanguage] = useState("none");
   let [questions, setQuestions] = useState([]);
   function selectEnglish() {

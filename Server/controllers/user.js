@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { registerUser, loginUser, logoutUser } = require("../models/user");
 
-app.post("/register", express.json(), async (req, res) => {
+router.post("/register",  async (req, res) => {
     try {
         const { username, password } = req.body;
         const userId = await registerUser(username, password);
@@ -17,7 +17,7 @@ app.post("/register", express.json(), async (req, res) => {
     }
 });
 
-app.post("/login", express.json(), async (req, res, next) => {
+router.post("/login",  async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const token = await loginUser(username, password);
@@ -33,7 +33,7 @@ app.post("/login", express.json(), async (req, res, next) => {
     }
 });
 
-app.post("/logout", express.json(), async (req, res) => {
+router.post("/logout",  async (req, res) => {
     try {
         const { token } = req.body;
         await logoutUser(token);
