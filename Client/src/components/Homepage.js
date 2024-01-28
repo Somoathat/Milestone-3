@@ -1,13 +1,13 @@
 import Flag from "react-world-flags";
 import "./Homepage.css";
 import { useState } from "react";
-import  Quiz  from "./Quiz";
+import Quiz from "./Quiz";
 import axios from "axios";
- function Homepage() {
+function Homepage() {
   let [language, setLanguage] = useState("none");
   let [questions, setQuestions] = useState([]);
   function selectEnglish() {
-    axios.get("http://localhost:5000/questions").then((res) => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/questions`).then((res) => {
       const questions = res.data;
       setQuestions(questions);
       setLanguage("English");
@@ -47,4 +47,4 @@ import axios from "axios";
   );
 }
 
-export default Homepage
+export default Homepage;
