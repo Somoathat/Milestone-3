@@ -24,6 +24,7 @@ function Login(props) {
           id="email"
           name="email"
         />
+        <br /> <br />
         <label htmlFor="password">password</label>
         <input
           value={pass}
@@ -33,7 +34,10 @@ function Login(props) {
           id="password"
           name="password"
         />
-        <button type="submit">Log In</button>
+        <br /> <br />
+        <button class="login" type="submit">
+          Log In
+        </button>
       </form>
       <button
         className="link-btn"

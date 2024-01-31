@@ -1,0 +1,8 @@
+@use "definitions" as *;
+.flag {
+  @include dementions($cells-size, $cells-size);
+  border-radius: $consistant-radius;
+  border-color: black;
+  margin: 10px;
+  filter: drop-shadow(grey 1rem 1rem 10px);
+}

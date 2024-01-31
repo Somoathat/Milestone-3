@@ -2,3 +2,15 @@ div {
   margin: auto;
   text-align: center;
 }
+
+.title {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.flag {
+  border-radius: 10px;
+  border-color: black;
+  margin: 10px;
+  filter: drop-shadow(grey 1rem 1rem 10px);
+}

@@ -15,21 +15,21 @@ function Homepage() {
   }
   return (
     <div>
-      <button onClick={() => selectEnglish()}>
+      <button class="flag" onClick={() => selectEnglish()}>
         <Flag code="usa" height="21" />
       </button>
-      <button>
+      <button class="flag">
         {" "}
         <Flag code="gbr" height="21" />
       </button>
-      <button>
+      <button class="flag">
         <Flag code="esp" height="21" />
       </button>
-      <button>
+      <button class="flag">
         {" "}
         <Flag code="fra" height="21" />
       </button>
-      <button>
+      <button class="flag">
         <Flag code="chn" height="21" />
       </button>
       {language === "English" ? (
@@ -39,7 +39,7 @@ function Homepage() {
       ) : (
         <div>
           {" "}
-          <h1>Linguist Buddy</h1>
+          <h1 class="title">Linguist Buddy</h1>
           <p>Click a flag and start learning a new language!</p>
         </div>
       )}

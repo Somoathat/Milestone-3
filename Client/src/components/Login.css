@@ -1,0 +1,7 @@
+.login,
+.link-btn {
+  border-radius: 20px;
+  border-color: black;
+  background-color: rgb(212, 212, 71);
+  margin: 15px;
+}
