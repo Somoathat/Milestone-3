@@ -44,14 +44,6 @@ __This Project's Frontend and Backend were deployed on two differnt servers due 
 
 
 
-## Tables
-
-| Left columns  | Right columns |
-| ------------- |:-------------:|
-| left foo      | right foo     |
-| left bar      | right bar     |
-| left baz      | right baz     |
-
 ## Documentation
 
 https://create-react-app.dev/docs/getting-started/
