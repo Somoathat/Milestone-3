@@ -63,3 +63,22 @@
   position: absolute;
   right: 0%;
 }
+
+.navBar ul {
+  list-style: none;
+}
+
+.navBar li::marker {
+  content: "▶";
+}
+
+.navBar li {
+  padding-left: 10px;
+}
+
+.navBar a {
+  text-decoration: none;
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 110%;
+}

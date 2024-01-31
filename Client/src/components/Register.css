@@ -1,0 +1,7 @@
+.register {
+  border-radius: 20px;
+  border-color: black;
+  background-color: rgb(212, 212, 71);
+  margin: 30px;
+  padding: 10px;
+}
