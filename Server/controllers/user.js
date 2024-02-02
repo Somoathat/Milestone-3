@@ -3,7 +3,7 @@ const { registerUser, loginUser, logoutUser } = require("../models/user");
 
 router.post("/register",  async (req, res) => {
     try {
-        const { username, password } = req.body;
+        const { username, password,email } = req.body;
         const userId = await registerUser(username, password);
         res.send({
             message: "User registered successfully!",
