@@ -12,6 +12,7 @@ function Login(props) {
       .get(`${process.env.REACT_APP_BACKEND_URL}/users/login`)
       .then((res) => {
         console.log(res);
+        
       });
   };
 
