@@ -8,7 +8,13 @@ function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email);
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/users/login`)
+      .then((res) => {
+        const questions = res.data;
+        setQuestions(questions);
+        setLanguage("English");
+      });
   };
 
   return (
