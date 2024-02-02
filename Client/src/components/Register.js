@@ -35,6 +35,7 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const API_URL =
     process.env.REACT_APP_BACKEND_URL ||
     "https://linhuist-buddy-backend.onrender.com";
@@ -45,6 +46,7 @@ function Register() {
     axios
       .post(`${API_URL} /Register`, {
         username: username,
+        email: email,
         password: password,
       })
       .then((response) => {
@@ -66,6 +68,16 @@ function Register() {
             name="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        
+        <div>
+          <label className="input">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <br /> <br />
