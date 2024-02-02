@@ -4,22 +4,22 @@ const crypto = require("crypto");
 
 const saltRounds = 10;
 
-async function registerUser(username, password) {
+async function registerUser(username, email, password) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
     // Insert the user into the database
     const result = await client.query(
-        'INSERT INTO "User" (username, password) VALUES ($1, $2) RETURNING id',
-        [username, hashedPassword]
+        'INSERT INTO "User" (username, email, password) VALUES ($1, $2) RETURNING id',
+        [username, email, hashedPassword]
     );
 
     return result.rows[0].id; // Return the newly created user ID
 }
 
-async function loginUser(username, password) {
-    const result = await client.query('SELECT id, password FROM "User" WHERE username = $1', [
-        username,
+async function loginUser(email, password) {
+    const result = await client.query('SELECT id, password FROM "User" WHERE email = $1', [
+        email,
     ]);
 
     const user = result.rows[0];

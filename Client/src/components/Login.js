@@ -11,7 +11,9 @@ function Login(props) {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/users/login`)
       .then((res) => {
-        const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+        const questions = res.data;
+        setQuestions(questions);
+        setLanguage("English");
       });
   };
 
