@@ -11,9 +11,8 @@ function Login(props) {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/users/login`)
       .then((res) => {
-        const questions = res.data;
-        setQuestions(questions);
-        setLanguage("English");
+        console.log(res);
+        
       });
   };
 
