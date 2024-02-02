@@ -90,7 +90,19 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <br />
+        <br />
+        <div>
+          <label className="input">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
       </div>
+
       <button className="register" type="submit">
         Register
       </button>
