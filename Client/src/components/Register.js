@@ -70,7 +70,6 @@ function Register() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        
         <div>
           <label className="input">Email:</label>
           <input
@@ -81,6 +80,7 @@ function Register() {
           />
         </div>
         <br /> <br />
+        <br />
         <div>
           <label className="input">Password:</label>
           <input
