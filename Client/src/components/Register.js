@@ -35,7 +35,9 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+  const API_URL =
+    process.env.REACT_APP_BACKEND_URL ||
+    "https://linhuist-buddy-backend.onrender.com";
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
