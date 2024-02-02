@@ -22,7 +22,7 @@
   "production": {
     "username": "linguist_user",
     "password": "JrOsAAsrSLTPKGMLv8xJEdY8cmnLaYaJ",
-    "database": "linguist_production",
+    "database": "linguist",
     "host": "dpg-cmo743ed3nmc739jin0g-a.oregon-postgres.render.com",
     "dialect": "postgres"
   }
