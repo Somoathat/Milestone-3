@@ -48,7 +48,6 @@ function Register() {
         username: username,
         email: email,
         password: password,
-        
       })
       .then((response) => {
         navigate("/login");
@@ -71,9 +70,17 @@ function Register() {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-      
-      
+        <div>
+          <label className="input">Email:</label>
+          <input
+            type="email"
+            name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
         <br /> <br />
+        <br />
         <div>
           <label className="input">Password:</label>
           <input
@@ -83,10 +90,9 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-      
-      <br /> 
-      <br />
-      <div>
+        <br />
+        <br />
+        <div>
           <label className="input">Email:</label>
           <input
             type="email"
@@ -96,7 +102,7 @@ function Register() {
           />
         </div>
       </div>
-      
+
       <button className="register" type="submit">
         Register
       </button>
